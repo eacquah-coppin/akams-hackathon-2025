@@ -1,0 +1,11 @@
+<botcomponent schemaname="crcd1_agent.topic.httpscoppinedu_GcAuuV1cyqdMFTAmBDkNa">
+  <componenttype>16</componenttype>
+  <description>This knowledge source searches information on the web found in https://coppin.edu website</description>
+  <iscustomizable>0</iscustomizable>
+  <name>https://coppin.edu</name>
+  <parentbotid>
+    <schemaname>crcd1_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

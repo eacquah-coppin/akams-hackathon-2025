@@ -1,0 +1,91 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    triggerQueries:
+      - student enrollment
+      - how to enroll as a student
+      - enrollment process for students
+      - register as a student
+      - student registration details
+      - steps to enroll in school
+      - college enrollment information
+      - university admission process
+
+  actions:
+    - kind: Question
+      id: Question_ZYdhz1
+      variable: Topic.EnrollmentQuery
+      prompt: "How can I help you today? Please choose an option:"
+      entity:
+        kind: EmbeddedEntity
+        definition:
+          kind: ClosedListEntity
+          optionSetName: EnrollmentOptions
+          items:
+            - id: enrollment_procedures
+              displayName: Enrollment Procedures
+
+            - id: eligibility_criteria
+              displayName: Eligibility Criteria
+
+            - id: application_status
+              displayName: Application Status
+
+            - id: financial_aid_scholarships
+              displayName: Financial Aid and Scholarships
+
+            - id: important_dates
+              displayName: Important Dates
+
+            - id: contact_information
+              displayName: Contact Information
+
+    - kind: ConditionGroup
+      id: ConditionGroup_NOSHld
+      conditions:
+        - id: ConditionItem_yhzbk4
+          condition: =Topic.EnrollmentQuery = EnrollmentOptions.enrollment_procedures
+          actions:
+            - kind: SendActivity
+              id: SendActivity_jnVLhs
+              activity: To enroll, you need to submit an application, provide required documents, and meet the deadlines. For more details, visit https://coppin.edu.
+
+        - id: ConditionItem_X6aPUg
+          condition: =Topic.EnrollmentQuery = EnrollmentOptions.eligibility_criteria
+          actions:
+            - kind: SendActivity
+              id: SendActivity_6UNDRM
+              activity: Eligibility criteria vary by program. Generally, you need to meet academic qualifications and other prerequisites. For specific details, visit https://coppin.edu.
+
+        - id: ConditionItem_JrNLA6
+          condition: =Topic.EnrollmentQuery = EnrollmentOptions.application_status
+          actions:
+            - kind: SendActivity
+              id: SendActivity_rgg2nf
+              activity: To check your application status, please visit https://coppin.edu and log in to your account.
+
+        - id: ConditionItem_n0nK8S
+          condition: =Topic.EnrollmentQuery = EnrollmentOptions.financial_aid_scholarships
+          actions:
+            - kind: SendActivity
+              id: SendActivity_To8JnT
+              activity: We offer various financial aid options and scholarships. To learn more and apply, visit https://coppin.edu.
+
+        - id: ConditionItem_bUTyeB
+          condition: =Topic.EnrollmentQuery = EnrollmentOptions.important_dates
+          actions:
+            - kind: SendActivity
+              id: SendActivity_cVHRJ3
+              activity: Important dates for enrollment, such as application deadlines, interview schedules, and orientation sessions, can be found at https://coppin.edu.
+
+        - id: ConditionItem_qvUQum
+          condition: =Topic.EnrollmentQuery = EnrollmentOptions.contact_information
+          actions:
+            - kind: SendActivity
+              id: SendActivity_M64TR2
+              activity: For further assistance, you can contact our enrollment office. Visit https://coppin.edu for contact details.
+
+inputType: {}
+outputType: {}

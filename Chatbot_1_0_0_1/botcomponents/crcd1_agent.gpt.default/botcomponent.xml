@@ -1,0 +1,11 @@
+<botcomponent schemaname="crcd1_agent.gpt.default">
+  <componenttype>15</componenttype>
+  <description>University Information Agent - Eaglebuddy</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Eagle Buddy</name>
+  <parentbotid>
+    <schemaname>crcd1_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

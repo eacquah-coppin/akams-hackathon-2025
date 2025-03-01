@@ -1,0 +1,77 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    triggerQueries:
+      - financial aid
+      - apply for financial aid
+      - how to get financial aid
+      - financial assistance options
+      - student loans and grants
+      - scholarship information
+      - aid for tuition fees
+      - financial support for students
+      - help with college costs
+
+  actions:
+    - kind: Question
+      id: Question_YR8AAe
+      variable: Topic.FinancialAidType
+      prompt: What type of financial aid information are you looking for?
+      entity:
+        kind: EmbeddedEntity
+        definition:
+          kind: ClosedListEntity
+          optionSetName: FinancialAidOptions
+          items:
+            - id: scholarships
+              displayName: Scholarships
+
+            - id: grants
+              displayName: Grants
+
+            - id: loans
+              displayName: Loans
+
+            - id: work_study
+              displayName: Work-Study Programs
+
+    - kind: ConditionGroup
+      id: ConditionGroup_xCadYV
+      conditions:
+        - id: ConditionItem_8Zn1JA
+          condition: =Topic.FinancialAidType = FinancialAidOptions.scholarships
+          actions:
+            - kind: SendActivity
+              id: SendActivity_IVMMAe
+              activity: Scholarships are a type of financial aid that do not need to be repaid. They are typically awarded based on academic merit, talent, or other criteria.
+
+        - id: ConditionItem_hDqG5s
+          condition: =Topic.FinancialAidType = FinancialAidOptions.grants
+          actions:
+            - kind: SendActivity
+              id: SendActivity_qK3nJ8
+              activity: Grants are a type of financial aid that do not need to be repaid. They are usually awarded based on financial need.
+
+        - id: ConditionItem_RPT12L
+          condition: =Topic.FinancialAidType = FinancialAidOptions.loans
+          actions:
+            - kind: SendActivity
+              id: SendActivity_ypayEc
+              activity: Loans are a type of financial aid that must be repaid with interest. There are various types of loans available, including federal and private loans.
+
+        - id: ConditionItem_Yk7yGg
+          condition: =Topic.FinancialAidType = FinancialAidOptions.work_study
+          actions:
+            - kind: SendActivity
+              id: SendActivity_BVwiL7
+              activity: Work-study programs provide part-time jobs for students with financial need, allowing them to earn money to help pay for education expenses.
+
+      elseActions:
+        - kind: SendActivity
+          id: SendActivity_BvHAc7
+          activity: I'm sorry, I cannot provide information on that type of financial aid.
+
+inputType: {}
+outputType: {}

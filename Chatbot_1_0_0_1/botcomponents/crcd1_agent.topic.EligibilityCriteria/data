@@ -1,0 +1,58 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    triggerQueries:
+      - eligibility criteria
+      - check eligibility
+      - am I eligible
+      - eligibility requirements
+      - who is eligible
+      - qualifications needed
+      - do I qualify
+      - eligibility conditions
+
+  actions:
+    - kind: Question
+      id: Question_g1ig2i
+      variable: Topic.ComputerScienceEligibility
+      prompt: What are the eligibility criteria for the computer science undergraduate program?
+      entity: StringPrebuiltEntity
+
+    - kind: Question
+      id: Question_6snAzP
+      variable: Topic.MeritBasedScholarshipEligibility
+      prompt: Am I eligible for a merit-based scholarship?
+      entity: StringPrebuiltEntity
+
+    - kind: Question
+      id: Question_jxYP3k
+      variable: Topic.InternationalAdmissionRequirements
+      prompt: What are the admission requirements for international students?
+      entity: StringPrebuiltEntity
+
+    - kind: Question
+      id: Question_U7YVHJ
+      variable: Topic.ResidencyRequirement
+      prompt: Do I need to be a resident to apply for this program?
+      entity: StringPrebuiltEntity
+
+    - kind: Question
+      id: Question_whKyYw
+      variable: Topic.StudyAbroadEligibility
+      prompt: What are the eligibility requirements for the study abroad program?
+      entity: StringPrebuiltEntity
+
+    - kind: SendActivity
+      id: SendActivity_8XEy6s
+      activity: |-
+        Thank you for your questions. Here is a summary of the information you requested:
+        1. Computer Science Undergraduate Program Eligibility: {Topic.ComputerScienceEligibility}
+        2. Merit-Based Scholarship Eligibility: {Topic.MeritBasedScholarshipEligibility}
+        3. International Admission Requirements: {Topic.InternationalAdmissionRequirements}
+        4. Residency Requirement: {Topic.ResidencyRequirement}
+        5. Study Abroad Program Eligibility: {Topic.StudyAbroadEligibility}
+
+inputType: {}
+outputType: {}
