@@ -21,7 +21,7 @@ Microsoft Copilot Studio
 Microsoft 365 admin access for license management
 Installation
 Clone the Repository:
-git clone https://github.com/yourusername/university-information-chatbot.git
+git clone https://github.com/eacquah-coppin/akams-hackathon-2025.git
 cd university-information-chatbot
 
 **Set Up PowerApps:**
